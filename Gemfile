@@ -3,8 +3,7 @@ source "https://rubygems.org"
 
 gemspec
 
-# gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "main"
-gem "alchemy_cms", path: "../alchemy_cms"
+gem "alchemy_cms", path: "AlchemyCMS/alchemy_cms", branch: "split-out-legacy-api"
 
 group :development, :test do
   unless ENV["TRAVIS"]
