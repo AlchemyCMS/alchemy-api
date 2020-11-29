@@ -7,7 +7,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/dummy/db/**/*'
     - 'spec/dummy/config/**/*'
-    - 'alchemy_cms.gemspec'
+    - 'alchemy-api.gemspec'
     - 'Rakefile'
     - 'node_modules/**/*'
 
