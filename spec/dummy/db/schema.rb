@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_111332) do
+ActiveRecord::Schema.define(version: 2020_11_29_204954) do
 
   create_table "alchemy_attachments", force: :cascade do |t|
     t.string "name"
@@ -278,36 +278,10 @@ ActiveRecord::Schema.define(version: 2020_09_07_111332) do
     t.index ["host"], name: "index_alchemy_sites_on_host"
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.date "from"
-    t.date "until"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dummy_models", force: :cascade do |t|
-    t.string "data"
-  end
-
   create_table "dummy_users", force: :cascade do |t|
     t.string "email"
     t.string "password"
     t.index ["email"], name: "index_dummy_users_on_email"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.string "hidden_name"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
-    t.time "lunch_starts_at"
-    t.time "lunch_ends_at"
-    t.text "description"
-    t.decimal "entrance_fee", precision: 6, scale: 2
-    t.boolean "published"
-    t.integer "location_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "gutentag_taggings", force: :cascade do |t|
@@ -328,16 +302,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_111332) do
     t.integer "taggings_count", default: 0, null: false
     t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "series", force: :cascade do |t|
-    t.string "name"
   end
 
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", on_update: :cascade, on_delete: :cascade

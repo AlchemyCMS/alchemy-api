@@ -1,28 +1,8 @@
-sqlite: &sqlite
-  adapter: sqlite3
-  database: db/<%= Rails.env %>.sqlite3
-
-mysql: &mysql
-  adapter: mysql2
-  encoding: utf8mb4
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  database: alchemy_cms_dummy_<%= Rails.env %>
-
-postgresql: &postgresql
-  adapter: postgresql
-  <% if ENV['DB_USER'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  <% end %>
-  database: alchemy_cms_dummy_<%= Rails.env %>
-  min_messages: ERROR
-
 defaults: &defaults
+  adapter: sqlite3
   pool: 5
   timeout: 5000
-  host: <%= ENV['DB_HOST'] || "localhost" %>
-  <<: *<%= ENV['DB'] || "sqlite" %>
+  database: db/<%= Rails.env %>.sqlite3
 
 development:
   <<: *defaults
